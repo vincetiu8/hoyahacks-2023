@@ -1,9 +1,33 @@
-import { Button, Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import BetterButton from "./BetterButton";
+import { WorkoutsContext } from "../contexts/WorkoutsContext";
+import { useContext } from "react";
 
 export default function WorkoutView({ navigation, workout }) {
-  const { members, startTime, endTime, location, type, image } = workout;
+  const { workouts, setWorkouts } = useContext(WorkoutsContext);
+  const { id, members, startTime, endTime, location, type, image } = workout;
   const timeDelta = new Date(Date.now() - endTime);
   const reverseTimeDelta = new Date(startTime - Date.now());
+
+  if (members.length === 0) {
+    return "";
+  }
+
+  const toggleWorkoutStatus = (joined) => {
+    const newWorkouts = [...workouts];
+    if (joined) {
+      newWorkouts.forEach((workout) => {
+        if (workout.id !== id) return;
+        workout.members.splice(0, 0, "Me");
+      });
+    } else {
+      newWorkouts.forEach((workout) => {
+        if (workout.id !== id) return;
+        workout.members.splice(members.indexOf("Me"), 1);
+      });
+    }
+    setWorkouts(newWorkouts);
+  };
 
   return (
     <View style={styles.container}>
@@ -35,11 +59,10 @@ export default function WorkoutView({ navigation, workout }) {
               : "a few seconds"}{" "}
             ago, {type}
           </Text>
-          <Pressable onPress={() => navigation.navigate("Home")}>
-            <View style={styles.button}>
-              <Text style={styles.text}>See more</Text>
-            </View>
-          </Pressable>
+          <BetterButton
+            onPress={() => navigation.navigate("Home")}
+            text="See more"
+          />
         </View>
       ) : (
         <View>
@@ -57,12 +80,19 @@ export default function WorkoutView({ navigation, workout }) {
                   : reverseTimeDelta.getUTCMinutes() === 1
                   ? "1 minute"
                   : "a few seconds")}
+            , {type}
           </Text>
-          <Pressable onPress={() => navigation.navigate("Home")}>
-            <View style={styles.button}>
-              <Text style={styles.text}>Join workout</Text>
-            </View>
-          </Pressable>
+          {members.indexOf("Me") !== -1 ? (
+            <BetterButton
+              onPress={() => toggleWorkoutStatus(false)}
+              text="Leave workout"
+            />
+          ) : (
+            <BetterButton
+              onPress={() => toggleWorkoutStatus(true)}
+              text="Join workout"
+            />
+          )}
         </View>
       )}
     </View>

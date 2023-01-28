@@ -11,8 +11,11 @@ import NewWorkout from "./screens/NewWorkout";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [workouts, setWorkouts] = useState(tempWorkouts);
+  const value = { workouts, setWorkouts };
+
   return (
-    <WorkoutsContext.Provider value={tempWorkouts}>
+    <WorkoutsContext.Provider value={value}>
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="Splash"

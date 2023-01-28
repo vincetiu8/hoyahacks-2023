@@ -8,17 +8,21 @@ import {
 } from "react-native";
 import WorkoutView from "../components/WorkoutView";
 import { WorkoutsContext } from "../contexts/WorkoutsContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 export default function HomeScreen({ navigation }) {
-  const context = useContext(WorkoutsContext);
+  const { workouts, setWorkouts } = useContext(WorkoutsContext);
+
+  useEffect(() => {
+    console.log(workouts);
+  }, [workouts]);
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>PictoGym</Text>
       <FlatList
         containerStyle={styles.container}
-        data={context}
+        data={workouts}
         renderItem={({ item }) => <WorkoutView workout={item} />}
       />
       <Pressable
