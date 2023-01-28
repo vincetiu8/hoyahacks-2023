@@ -29,7 +29,7 @@ export default function SplashScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#CBC3E3",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    backgroundColor: "#cc9cff",
+    backgroundColor: "#A020F0",
     padding: 15,
     borderRadius: 50,
     margin: 5,

@@ -101,7 +101,7 @@ export default function WorkoutView({ navigation, workout }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "gray",
+    backgroundColor: "#bca0dc",
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   },
   barContainer: {
     flex: 1,
-    backgroundColor: "grey",
+    backgroundColor: "#cc9cff",
   },
   title: {
     fontSize: 64,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    backgroundColor: "#cc9cff",
+    backgroundColor: "#A020F0",
     padding: 5,
     paddingHorizontal: 15,
     borderRadius: 50,

@@ -3,8 +3,10 @@ import {
   Text,
   ScrollView,
   FlatList,
+  Image,
   View,
   Pressable,
+  ImageBackground,
 } from "react-native";
 import WorkoutView from "../components/WorkoutView";
 import { WorkoutsContext } from "../contexts/WorkoutsContext";
@@ -13,11 +15,8 @@ import { useContext, useEffect } from "react";
 export default function HomeScreen({ navigation }) {
   const { workouts, setWorkouts } = useContext(WorkoutsContext);
 
-  useEffect(() => {
-    console.log(workouts);
-  }, [workouts]);
-
-  return (
+  return (      
+  <ImageBackground source={require("../assets/gymbackground.png")} style={styles.background}>
     <View style={styles.container}>
       <Text style={styles.title}>PictoGym</Text>
       <FlatList
@@ -32,13 +31,18 @@ export default function HomeScreen({ navigation }) {
         <Text style={styles.plusText}>+</Text>
       </Pressable>
     </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  background: {
+resizeMode: 'cover',
+flex: 1
+  },
   plusButtonContainer: {
     position: "absolute",
-    backgroundColor: "#cc9cff",
+    backgroundColor: "#efbbff",
     bottom: 25,
     right: 25,
     width: 70,
@@ -55,15 +59,31 @@ const styles = StyleSheet.create({
     textAlign: "center",
     textAlignVertical: "center",
   },
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
+  historyButtonContainer: {
+    position: "absolute",
+    backgroundColor: "#efbbff",
+    bottom: 25,
+    left: 25,
+    width: 70,
+    height: 70,
+    padding: 5,
+    borderRadius: 50,
     alignItems: "center",
     justifyContent: "center",
+    paddingBottom: 10,
   },
-  barContainer: {
+  historyImage: {
+    width: 30,
+    height: 30,
+    color: "white",
+    textAlign: "center",
+    textAlignVertical: "center",
+  },
+  container: {
     flex: 1,
-    backgroundColor: "grey",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 10,
   },
   title: {
     fontSize: 64,
