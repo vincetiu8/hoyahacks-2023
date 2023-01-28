@@ -115,7 +115,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 64,
     fontWeight: "bold",
-    marginBottom: 20,
+    marginBottom: 20,fontFamily: 'Staatliches-Regular',
+
   },
   button: {
     backgroundColor: "#A020F0",
@@ -130,10 +131,12 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center",
     marginVertical: 5,
+    fontFamily: 'Staatliches-Regular',
   },
   textInput: {
     fontSize: 32,
     color: "#cc9cff",
+    fontFamily: 'Staatliches-Regular',
   },
   image: {
     width: "100%",

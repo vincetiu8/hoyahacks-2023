@@ -5,11 +5,13 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
 } from "react-native";
 
 export default function SplashScreen({ navigation }) {
   return (
     <View style={styles.container}>
+        <Image source ={require("../assets/logo.png")} style = {styles.logocss}/>
       <Text style={styles.title}>PictoGym</Text>
 
       <Pressable onPress={() => navigation.navigate("Login")}>
@@ -34,9 +36,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
+    fontFamily:'Staatliches-Regular',
     fontSize: 64,
     fontWeight: "bold",
     marginBottom: 20,
+
   },
   button: {
     backgroundColor: "#A020F0",
@@ -47,5 +51,11 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 32,
     color: "white",
+    fontFamily: 'Staatliches-Regular',
+  },
+  logocss: {
+    width: 200,
+    height: 200,
+    textAlign: "center",
   },
 });

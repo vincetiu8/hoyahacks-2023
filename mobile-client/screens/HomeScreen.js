@@ -87,6 +87,7 @@ flex: 1
   },
   title: {
     fontSize: 64,
+    fontFamily: 'Staatliches-Regular',
     fontWeight: "bold",
     marginBottom: 20,
     marginTop: 50,
@@ -100,10 +101,12 @@ flex: 1
   text: {
     fontSize: 32,
     color: "white",
+    fontFamily: 'Staatliches-Regular',
   },
   textInput: {
     fontSize: 32,
     color: "#cc9cff",
+    fontFamily: 'Staatliches-Regular',
   },
   bubble: {
     padding: 15,

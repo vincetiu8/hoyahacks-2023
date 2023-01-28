@@ -144,6 +144,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 100,
     marginLeft: 30,
+    fontFamily: 'Staatliches-Regular',
   },
   button: {
     backgroundColor: "#cc9cff",
@@ -154,6 +155,7 @@ const styles = StyleSheet.create({
   textInput: {
     fontSize: 32,
     color: "purple",
+    fontFamily: 'Staatliches-Regular',
   },
   textInputArea: {
     fontSize: 32,
@@ -163,6 +165,10 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 32,
     color: "black",
+    marginLeft: 30,
+    marginBottom: 10,
+    marginTop: 10,
+    fontFamily: 'Staatliches-Regular',
   },
   buttonText: {
     fontSize: 20,
