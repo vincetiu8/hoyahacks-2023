@@ -1,9 +1,16 @@
-import { StyleSheet, Text, ScrollView, FlatList, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  ScrollView,
+  FlatList,
+  View,
+  Pressable,
+} from "react-native";
 import WorkoutView from "../components/WorkoutView";
 import { WorkoutsContext } from "../contexts/WorkoutsContext";
 import { useContext } from "react";
 
-export default function HomeScreen({ route }) {
+export default function HomeScreen({ navigation }) {
   const context = useContext(WorkoutsContext);
 
   return (
@@ -14,11 +21,36 @@ export default function HomeScreen({ route }) {
         data={context}
         renderItem={({ item }) => <WorkoutView workout={item} />}
       />
+      <Pressable
+        style={styles.plusButtonContainer}
+        onPress={() => navigation.navigate("NewWorkout")}
+      >
+        <Text style={styles.plusText}>+</Text>
+      </Pressable>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  plusButtonContainer: {
+    position: "absolute",
+    backgroundColor: "#cc9cff",
+    bottom: 25,
+    right: 25,
+    width: 70,
+    height: 70,
+    padding: 5,
+    borderRadius: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingBottom: 10,
+  },
+  plusText: {
+    fontSize: 50,
+    color: "white",
+    textAlign: "center",
+    textAlignVertical: "center",
+  },
   container: {
     flex: 1,
     backgroundColor: "#fff",
