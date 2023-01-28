@@ -17,7 +17,7 @@ export default function SplashScreen({ navigation }) {
           <Text style={styles.text}>Login</Text>
         </View>
       </Pressable>
-      <Pressable>
+      <Pressable onPress={() => navigation.navigate("Signup")}>
         <View style={styles.button}>
           <Text style={styles.text}>Sign Up</Text>
         </View>
@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#cc9cff",
-    padding: 10,
-    borderRadius: 10,
+    padding: 15,
+    borderRadius: 50,
     margin: 5,
   },
   text: {

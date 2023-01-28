@@ -9,13 +9,13 @@ import {
 } from "react-native";
 import { useState } from "react";
 
-export default function LoginScreen({ navigation }) {
+export default function SignupScreen({ navigation }) {
   const [text, setText] = useState("");
   const [password, setPassword] = useState("");
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Sign Up</Text>
       <View style={styles.bubble}>
         <TextInput
           value={text}
@@ -35,7 +35,7 @@ export default function LoginScreen({ navigation }) {
       </View>
       <Pressable onPress={() => navigation.navigate("Home")}>
         <View style={styles.button}>
-          <Text style={styles.text}>Login</Text>
+          <Text style={styles.text}>Sign Up</Text>
         </View>
       </Pressable>
     </View>
