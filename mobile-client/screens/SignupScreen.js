@@ -6,6 +6,7 @@ import {
   Text,
   TextInput,
   View,
+  ImageBackground,
 } from "react-native";
 import { useState } from "react";
 
@@ -14,6 +15,7 @@ export default function SignupScreen({ navigation }) {
   const [password, setPassword] = useState("");
 
   return (
+    <ImageBackground source={require("../assets/gymbackground.png")} style={styles.background}>
     <View style={styles.container}>
       <Text style={styles.title}>Sign Up</Text>
       <View style={styles.bubble}>
@@ -39,13 +41,17 @@ export default function SignupScreen({ navigation }) {
         </View>
       </Pressable>
     </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  background: {
+    resizeMode: 'cover',
+    flex: 1
+      },
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -75,6 +81,7 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 50,
     borderColor: "#cc9cff",
+    backgroundColor: "#fff",
     borderStyle: "solid",
     borderWidth: 2,
     margin: 5,

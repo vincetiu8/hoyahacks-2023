@@ -30,6 +30,12 @@ export default function HomeScreen({ navigation }) {
       >
         <Text style={styles.plusText}>+</Text>
       </Pressable>
+      <Pressable
+        style={styles.historyButtonContainer}
+        onPress={() => navigation.navigate("NewWorkout")}
+      >
+        <Image source ={require("../assets/history-7611.png")} style = {styles.historyImage}/>
+      </Pressable>
     </View>
     </ImageBackground>
   );
