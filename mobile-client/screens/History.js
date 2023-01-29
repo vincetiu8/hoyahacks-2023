@@ -31,7 +31,7 @@ export default function History({navigation}) {
                         renderItem={({ item }) => <WorkoutView workout={item} />}
                     />
                     </View>
-                    <Pressable onPress={() => navigation.navigate("Home")}>
+                    <Pressable onPress={() => navigation.navigate("HomeScreen")}>
                         <View style={styles.button}>
                         <Text style={styles.buttonText}>Back</Text>
                         </View>
