@@ -6,6 +6,7 @@ import {
   Text,
   TextInput,
   View,
+  ScrollView,
   ImageBackground,
 } from "react-native";
 import { useState } from "react";
@@ -15,43 +16,52 @@ export default function SignupScreen({ navigation }) {
   const [password, setPassword] = useState("");
 
   return (
-    <ImageBackground source={require("../assets/gymbackground.png")} style={styles.background}>
-    <View style={styles.container}>
-      <Text style={styles.title}>Sign Up</Text>
-      <View style={styles.bubble}>
-        <TextInput
-          value={text}
-          onChangeText={setText}
-          placeholder="username"
-          style={styles.textInput}
-        />
-      </View>
-      <View style={styles.bubble}>
-        <TextInput
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry={true}
-          placeholder="password"
-          style={styles.textInput}
-        />
-      </View>
-      <Pressable onPress={() => navigation.navigate("Home")}>
-        <View style={styles.button}>
-          <Text style={styles.text}>Sign Up</Text>
+    <ScrollView
+      keyboardShouldPersistTaps="handled"
+      contentContainerStyle={styles.container}
+    >
+      <ImageBackground
+        source={require("../assets/gymbackground.png")}
+        style={styles.background}
+      >
+        <View style={styles.container}>
+          <Text style={styles.title}>Sign Up</Text>
+          <View style={styles.bubble}>
+            <TextInput
+              value={text}
+              onChangeText={setText}
+              placeholder="username"
+              style={styles.textInput}
+            />
+          </View>
+          <View style={styles.bubble}>
+            <TextInput
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry={true}
+              placeholder="password"
+              style={styles.textInput}
+            />
+          </View>
+          <Pressable onPress={() => navigation.navigate("Home")}>
+            <View style={styles.button}>
+              <Text style={styles.text}>Sign Up</Text>
+            </View>
+          </Pressable>
         </View>
-      </Pressable>
-    </View>
-    </ImageBackground>
+      </ImageBackground>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   background: {
-    resizeMode: 'cover',
-    flex: 1
-      },
+    resizeMode: "cover",
+    flex: 1,
+  },
   container: {
     flex: 1,
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -59,7 +69,7 @@ const styles = StyleSheet.create({
     fontSize: 64,
     fontWeight: "bold",
     marginBottom: 20,
-    fontFamily: 'Staatliches-Regular',
+    fontFamily: "Staatliches-Regular",
   },
   button: {
     backgroundColor: "#cc9cff",
@@ -70,12 +80,12 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 32,
     color: "white",
-    fontFamily: 'Staatliches-Regular',
+    fontFamily: "Staatliches-Regular",
   },
   textInput: {
     fontSize: 32,
     color: "#cc9cff",
-    fontFamily: 'Staatliches-Regular',
+    fontFamily: "Staatliches-Regular",
   },
   bubble: {
     padding: 15,

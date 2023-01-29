@@ -15,21 +15,26 @@ import { useContext, useEffect } from "react";
 export default function HomeScreen({ navigation }) {
   const { workouts, setWorkouts } = useContext(WorkoutsContext);
 
-  return (      
-  <ImageBackground source={require("../assets/gymbackground.png")} style={styles.background}>
-    <View style={styles.container}>
-      <Text style={styles.title}>PictoGym</Text>
-      <FlatList
-        containerStyle={styles.container}
-        data={workouts}
-        renderItem={({ item }) => <WorkoutView workout={item} />}
-      />
-      <Pressable
-        style={styles.plusButtonContainer}
-        onPress={() => navigation.navigate("NewWorkout")}
-      >
-        <Text style={styles.plusText}>+</Text>
-      </Pressable>
+  return (
+    <ImageBackground
+      source={require("../assets/gymbackground.png")}
+      style={styles.background}
+    >
+      <View style={styles.container}>
+        <Text style={styles.title}>PictoGym</Text>
+        <FlatList
+          containerStyle={styles.container}
+          data={workouts}
+          renderItem={({ item }) => (
+            <WorkoutView workout={item} navigation={navigation} />
+          )}
+        />
+        <Pressable
+          style={styles.plusButtonContainer}
+          onPress={() => navigation.navigate("NewWorkout")}
+        >
+          <Text style={styles.plusText}>+</Text>
+        </Pressable>
       <Pressable
         style={styles.historyButtonContainer}
         onPress={() => navigation.navigate("NewWorkout")}
@@ -43,8 +48,8 @@ export default function HomeScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   background: {
-resizeMode: 'cover',
-flex: 1
+    resizeMode: "cover",
+    flex: 1,
   },
   plusButtonContainer: {
     position: "absolute",

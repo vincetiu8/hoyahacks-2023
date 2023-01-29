@@ -1,7 +1,7 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import BetterButton from "./BetterButton";
 import { WorkoutsContext } from "../contexts/WorkoutsContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 export default function WorkoutView({ navigation, workout }) {
   const { workouts, setWorkouts } = useContext(WorkoutsContext);
@@ -31,16 +31,7 @@ export default function WorkoutView({ navigation, workout }) {
 
   return (
     <View style={styles.container}>
-      {image ? (
-        <Image
-          style={styles.image}
-          source={{
-            uri: image,
-          }}
-        />
-      ) : (
-        ""
-      )}
+      {image ? <Image style={styles.image} source={{ uri: image }} /> : ""}
 
       <Text style={styles.text}> {members.join(", ")}</Text>
 
@@ -93,6 +84,14 @@ export default function WorkoutView({ navigation, workout }) {
               text="Join workout"
             />
           )}
+          {Date.now() > startTime ? (
+            <BetterButton
+              onPress={() => navigation.navigate("Camera", { id: id })}
+              text="Take a photo!"
+            />
+          ) : (
+            ""
+          )}
         </View>
       )}
     </View>
@@ -115,8 +114,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 64,
     fontWeight: "bold",
-    marginBottom: 20,fontFamily: 'Staatliches-Regular',
-
+    marginBottom: 20,
+    fontFamily: "Staatliches-Regular",
   },
   button: {
     backgroundColor: "#A020F0",
@@ -131,12 +130,12 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center",
     marginVertical: 5,
-    fontFamily: 'Staatliches-Regular',
+    fontFamily: "Staatliches-Regular",
   },
   textInput: {
     fontSize: 32,
     color: "#cc9cff",
-    fontFamily: 'Staatliches-Regular',
+    fontFamily: "Staatliches-Regular",
   },
   image: {
     width: "100%",

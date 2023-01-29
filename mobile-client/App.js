@@ -9,6 +9,7 @@ import { tempWorkouts, WorkoutsContext } from "./contexts/WorkoutsContext";
 import { useFonts } from 'expo-font';
 import NewWorkout from "./screens/NewWorkout";
 import History from "./screens/History";
+import CameraScreen from "./screens/CameraScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,11 +28,17 @@ export default function App() {
     <WorkoutsContext.Provider value={value}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="History"
+          initialRouteName="Splash"
           screenOptions={{
             headerShown: false,
           }}
         >
+          <Stack.Screen name="Splash" component={SplashScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Signup" component={SignupScreen} />
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="NewWorkout" component={NewWorkout} />
+          <Stack.Screen name="Camera" component={CameraScreen} />
           <Stack.Screen name="History" component={History} />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
 

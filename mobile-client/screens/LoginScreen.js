@@ -6,6 +6,7 @@ import {
   Text,
   TextInput,
   View,
+  ScrollView,
 } from "react-native";
 import { useState } from "react";
 
@@ -14,7 +15,10 @@ export default function LoginScreen({ navigation }) {
   const [password, setPassword] = useState("");
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      keyboardShouldPersistTaps="handled"
+      contentContainerStyle={styles.container}
+    >
       <Text style={styles.title}>Login</Text>
       <View style={styles.bubble}>
         <TextInput
@@ -38,7 +42,7 @@ export default function LoginScreen({ navigation }) {
           <Text style={styles.text}>Login</Text>
         </View>
       </Pressable>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -53,7 +57,7 @@ const styles = StyleSheet.create({
     fontSize: 64,
     fontWeight: "bold",
     marginBottom: 20,
-    fontFamily: 'Staatliches-Regular',
+    fontFamily: "Staatliches-Regular",
   },
   button: {
     backgroundColor: "#cc9cff",
@@ -64,12 +68,12 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 32,
     color: "white",
-    fontFamily: 'Staatliches-Regular',
+    fontFamily: "Staatliches-Regular",
   },
   textInput: {
     fontSize: 32,
     color: "#cc9cff",
-    fontFamily: 'Staatliches-Regular',
+    fontFamily: "Staatliches-Regular",
   },
   bubble: {
     padding: 15,
