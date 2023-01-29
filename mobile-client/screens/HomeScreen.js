@@ -35,13 +35,16 @@ export default function HomeScreen({ navigation }) {
         >
           <Text style={styles.plusText}>+</Text>
         </Pressable>
-      <Pressable
-        style={styles.historyButtonContainer}
-        onPress={() => navigation.navigate("NewWorkout")}
-      >
-        <Image source ={require("../assets/history-7611.png")} style = {styles.historyImage}/>
-      </Pressable>
-    </View>
+        <Pressable
+          style={styles.historyButtonContainer}
+          onPress={() => navigation.navigate("History")}
+        >
+          <Image
+            source={require("../assets/history-7611.png")}
+            style={styles.historyImage}
+          />
+        </Pressable>
+      </View>
     </ImageBackground>
   );
 }
@@ -97,8 +100,9 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   title: {
+    color: "white",
     fontSize: 64,
-    fontFamily: 'Staatliches-Regular',
+    fontFamily: "Staatliches-Regular",
     fontWeight: "bold",
     marginBottom: 20,
     marginTop: 50,
@@ -112,12 +116,12 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 32,
     color: "white",
-    fontFamily: 'Staatliches-Regular',
+    fontFamily: "Staatliches-Regular",
   },
   textInput: {
     fontSize: 32,
     color: "#cc9cff",
-    fontFamily: 'Staatliches-Regular',
+    fontFamily: "Staatliches-Regular",
   },
   bubble: {
     padding: 15,

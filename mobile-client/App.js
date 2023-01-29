@@ -6,16 +6,17 @@ import LoginScreen from "./screens/LoginScreen";
 import SignupScreen from "./screens/SignupScreen";
 import HomeScreen from "./screens/HomeScreen";
 import { tempWorkouts, WorkoutsContext } from "./contexts/WorkoutsContext";
-import { useFonts } from 'expo-font';
+import { useFonts } from "expo-font";
 import NewWorkout from "./screens/NewWorkout";
 import History from "./screens/History";
 import CameraScreen from "./screens/CameraScreen";
+import SeeMore from "./screens/SeeMore";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    'Staatliches-Regular': require('./assets/fonts/Staatliches-Regular.ttf'),
+    "Staatliches-Regular": require("./assets/fonts/Staatliches-Regular.ttf"),
   });
   const [workouts, setWorkouts] = useState(tempWorkouts);
   const value = { workouts, setWorkouts };
@@ -40,8 +41,7 @@ export default function App() {
           <Stack.Screen name="NewWorkout" component={NewWorkout} />
           <Stack.Screen name="Camera" component={CameraScreen} />
           <Stack.Screen name="History" component={History} />
-          <Stack.Screen name="HomeScreen" component={HomeScreen} />
-
+          <Stack.Screen name="SeeMore" component={SeeMore} />
         </Stack.Navigator>
       </NavigationContainer>
     </WorkoutsContext.Provider>

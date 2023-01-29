@@ -16,13 +16,13 @@ export default function SignupScreen({ navigation }) {
   const [password, setPassword] = useState("");
 
   return (
-    <ScrollView
-      keyboardShouldPersistTaps="handled"
-      contentContainerStyle={styles.container}
+    <ImageBackground
+      source={require("../assets/gymbackground.png")}
+      style={styles.background}
     >
-      <ImageBackground
-        source={require("../assets/gymbackground.png")}
-        style={styles.background}
+      <ScrollView
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={styles.container}
       >
         <View style={styles.container}>
           <Text style={styles.title}>Sign Up</Text>
@@ -49,8 +49,8 @@ export default function SignupScreen({ navigation }) {
             </View>
           </Pressable>
         </View>
-      </ImageBackground>
-    </ScrollView>
+      </ScrollView>
+    </ImageBackground>
   );
 }
 
@@ -61,11 +61,11 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
   title: {
+    color: "white",
     fontSize: 64,
     fontWeight: "bold",
     marginBottom: 20,

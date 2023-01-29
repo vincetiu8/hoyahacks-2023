@@ -3,32 +3,15 @@ import BetterButton from "./BetterButton";
 import { WorkoutsContext } from "../contexts/WorkoutsContext";
 import { useContext, useEffect } from "react";
 
-export default function WorkoutView({ navigation, workout }) {
+export default function BasicWorkoutView({ navigation, workout }) {
   const { workouts, setWorkouts } = useContext(WorkoutsContext);
   const { id, members, startTime, endTime, location, type, image } = workout;
   const timeDelta = new Date(Date.now() - endTime);
   const reverseTimeDelta = new Date(startTime - Date.now());
 
-  if (members.length === 0) {
+  if (members.length === 0 || members.indexOf("Me") === -1) {
     return "";
   }
-
-  const toggleWorkoutStatus = (joined) => {
-    const newWorkouts = [...workouts];
-    if (joined) {
-      newWorkouts.forEach((workout) => {
-        if (workout.id !== id) return;
-        workout.members.splice(0, 0, "Me");
-      });
-    } else {
-      newWorkouts.forEach((workout) => {
-        if (workout.id !== id) return;
-        workout.members.splice(members.indexOf("Me"), 1);
-      });
-    }
-    setWorkouts(newWorkouts);
-  };
-
   return (
     <View style={styles.container}>
       {image ? <Image style={styles.image} source={{ uri: image }} /> : ""}
@@ -51,7 +34,7 @@ export default function WorkoutView({ navigation, workout }) {
             ago, {type}
           </Text>
           <BetterButton
-            onPress={() => navigation.navigate("SeeMore", { id: id })}
+            onPress={() => navigation.navigate("Home")}
             text="See more"
           />
         </View>
@@ -73,29 +56,6 @@ export default function WorkoutView({ navigation, workout }) {
                   : "a few seconds")}
             , {type}
           </Text>
-          {members.indexOf("Me") !== -1 ? (
-            <BetterButton
-              onPress={() => toggleWorkoutStatus(false)}
-              text="Leave workout"
-            />
-          ) : (
-            <BetterButton
-              onPress={() => toggleWorkoutStatus(true)}
-              text="Join workout"
-            />
-          )}
-          {Date.now() > startTime ? (
-            <BetterButton
-              onPress={() => navigation.navigate("Camera", { id: id })}
-              text="Take a photo!"
-            />
-          ) : (
-            ""
-          )}
-          <BetterButton
-            onPress={() => navigation.navigate("SeeMore", { id: id })}
-            text="See more"
-          />
         </View>
       )}
     </View>
