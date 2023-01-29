@@ -5,11 +5,13 @@ import {
   StyleSheet,
   Text,
   View,
+  ImageBackground,
   Image,
 } from "react-native";
 
 export default function SplashScreen({ navigation }) {
   return (
+    <ImageBackground source={require("../assets/gymbackground.png")} style={styles.background}>
     <View style={styles.container}>
         <Image source ={require("../assets/logo.png")} style = {styles.logocss}/>
       <Text style={styles.title}>PictoGym</Text>
@@ -25,13 +27,17 @@ export default function SplashScreen({ navigation }) {
         </View>
       </Pressable>
     </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  background: {
+    resizeMode: 'cover',
+    flex: 1
+      },
   container: {
     flex: 1,
-    backgroundColor: "#CBC3E3",
     alignItems: "center",
     justifyContent: "center",
   },
