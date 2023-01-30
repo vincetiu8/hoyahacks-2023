@@ -27,7 +27,7 @@ export default function NewWorkout({ navigation }) {
   const onCreateWorkout = () => {
     const newWorkouts = [...workouts];
     newWorkouts.push({
-      id: workouts.length,
+      id: workouts.length + 1,
       members: ["Me"],
       startTime: startTime,
       endTime: endTime,
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 100,
     marginLeft: 30,
-    fontFamily: 'Staatliches-Regular',
+    fontFamily: "Staatliches-Regular",
   },
   button: {
     backgroundColor: "#cc9cff",
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   textInput: {
     fontSize: 32,
     color: "purple",
-    fontFamily: 'Staatliches-Regular',
+    fontFamily: "Staatliches-Regular",
   },
   textInputArea: {
     fontSize: 32,
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginBottom: 10,
     marginTop: 10,
-    fontFamily: 'Staatliches-Regular',
+    fontFamily: "Staatliches-Regular",
   },
   buttonText: {
     fontSize: 20,

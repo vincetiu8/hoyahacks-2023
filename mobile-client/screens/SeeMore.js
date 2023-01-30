@@ -16,7 +16,7 @@ import { Picker } from "@react-native-picker/picker";
 export default function SeeMore({ navigation, route }) {
   const { workouts, setWorkouts } = useContext(WorkoutsContext);
 
-  const workout = workouts[route.params.id];
+  const workout = workouts[route.params.id - 1];
 
   return (
     <ScrollView keyboardShouldPersistTaps="handled" style={styles.container}>

@@ -84,7 +84,7 @@ export default function WorkoutView({ navigation, workout }) {
               text="Join workout"
             />
           )}
-          {Date.now() > startTime ? (
+          {Date.now() > startTime && members.indexOf("Me") !== -1 ? (
             <BetterButton
               onPress={() => navigation.navigate("Camera", { id: id })}
               text="Take a photo!"
